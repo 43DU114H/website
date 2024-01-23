@@ -7,6 +7,7 @@ body {
     margin: 0;
     background-color: #f8f8f8;
 }
+
 #particles-js {
     position: fixed;
     width: 100%;
@@ -14,11 +15,9 @@ body {
     background-color: #f8f8f8; /* Set the background color of the particles container */
 }
 
-
-
 .poem-container {
     text-align: center;
-    padding: 20px;
+    padding: 10px; /* Adjust padding for smaller screens */
     opacity: 90%;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.1));
     border-radius: 10px;
@@ -28,21 +27,11 @@ body {
 }
 
 .poem-line {
-    font-size: 1.4rem;
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
     color: #333;
     margin: 10px 0;
     opacity: 0;
     transform: translateY(20px);
-}
-
-.poem-line[data-delay] {
-    --delay: 0s;
-}
-
-.poem-line.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .hidden {
@@ -50,7 +39,7 @@ body {
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 15px; /* Adjust margin for smaller screens */
     padding: 8px 16px;
     font-size: 1rem;
     background-color: #d038c3;
@@ -61,6 +50,9 @@ button {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+button:hover {
+    background-color: #3e26cb;
 }
 
 /* Media Query for Mobile Screens */
@@ -72,7 +64,4 @@ button {
     button {
         margin-top: 10px; /* Further adjust margin for smaller screens */
     }
-
-button:hover {
-    background-color: #3e26cb;
 }
