@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chat.css">
+    <title>Birthday Chat</title>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat">
+            <div class="message received">
+                <p>🐼</p>
+            </div>
+            <div class="message sent">
+                <p>What do you want for your birthday?</p>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Type your answer...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        var isAskingForBirthdayGift = true;
+
+        function sendMessage() {
+            var userInput = document.getElementById('userInput').value;
+            addMessage('sent', userInput);
+
+            // Handle responses based on user input
+            if (isAskingForBirthdayGift) {
+                handleGiftResponse(userInput);
+            } else {
+                handleDateResponse(userInput);
+            }
+        }
+
+        function handleGiftResponse(userInput) {
+            var chat = document.querySelector('.chat');
+            var reply = "";
+
+            if (userInput.toLowerCase().includes('you')) {
+                reply = "Awww... just say when!";
+                isAskingForBirthdayGift = false;
+            } else {
+                reply = "You could've just said 'you'! 🙄  ... I'm gonna ask again, what do you want for your birthday?";
+            }
+
+            addMessage('received', reply);
+        }
+
+        function handleDateResponse(userInput) {
+            var chat = document.querySelector('.chat');
+            var reply = "Done! It's a date.";
+
+            addMessage('received', reply);
+        }
+
+        function addMessage(type, text) {
+            var chat = document.querySelector('.chat');
+            var message = document.createElement('div');
+            message.classList.add('message', type);
+            message.innerHTML = '<p>' + text + '</p>';
+            chat.appendChild(message);
+
+            // Scroll to the bottom of the chat to show the latest message
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+</body>
+</html>
