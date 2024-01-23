@@ -70,6 +70,12 @@ button:hover {
         transform: scale(9);
     }
 }
+@media screen and (max-width: 600px) {
+    /* Add mobile-specific styles here */
+    .chat-container {
+        width: 100%;
+    }
+}
 
 @keyframes fadeIn {
     to {
