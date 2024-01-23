@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Celebration</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .countdown-container {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        #countdown {
+            animation: zoomIn 9s ease-in-out;
+        }
+
+        #birthday-message {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        #birthday-text {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: #d038c3; /* Adjust text color */
+    font-family: 'Josefin Sans', sans-serif; /* Add a custom font (you can change to any Google Font you like) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+    letter-spacing: 2px; /* Adjust letter spacing for emphasis */
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+
+}
+#birthday-text:hover {
+    transform: rotate(3deg); /* Rotate the text slightly on hover */
+}
+
+        button {
+            margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 25px; /* Increased border-radius for a rounded shape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+button:hover {
+    background: linear-gradient(to right, #2980b9, #3498db); /* Adjusted gradient on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+        .hidden {
+            display: none;
+        }
+
+        #confetti-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Ensure that the confetti doesn't interfere with button clicks */
+            z-index: 999; /* Ensure it's above other elements */
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(9);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <div id="countdown">10</div>
+    </div>
+
+    <div id="confetti-container"></div>
+
+    <div class="hidden" id="birthday-message">
+        <h1 id="birthday-text">HAPPY BIRTHDAY 🐼</h1>
+        <button onclick="proceedToPoem()">Proceed</button>
+    </div>
+
+    <script>
+        let countdown = 10;
+        let countdownElement = document.getElementById('countdown');
+        let birthdayMessage = document.getElementById('birthday-message');
+
+        function startCountdown() {
+            const interval = setInterval(() => {
+                countdown--;
+                countdownElement.innerText = countdown;
+
+                if (countdown === 1) {
+                    clearInterval(interval); // Stop the countdown
+                    showBirthdayMessage();
+                }
+            }, 1000);
+        }
+
+        function showBirthdayMessage() {
+            // Create a confetti effect using canvas-confetti
+            const confettiSettings = {
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            };
+            const confettiContainer = document.getElementById('confetti-container');
+            confettiContainer.innerHTML = ''; // Clear any existing confetti
+            confetti(confettiSettings);
+
+            // Show the birthday message
+            document.querySelector('.countdown-container').style.display = 'none';
+            birthdayMessage.classList.remove('hidden');
+        }
+
+        function proceedToPoem() {
+            window.location.href = 'poem.html';
+        }
+
+        startCountdown();
+    </script>
+</body>
+</html>

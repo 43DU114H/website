@@ -1,0 +1,78 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.countdown-container {
+    font-size: 4rem;
+    color: #333;
+}
+
+#countdown {
+    animation: zoomIn 9s ease-in-out;
+}
+
+#birthday-message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    z-index: 998;
+}
+
+#birthday-text {
+    font-size: 9rem;
+    margin-bottom: 20px;
+    color: #c116a2; /* Adjust text color */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 25px; /* Increased border-radius for a rounded shape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+button:hover {
+    background: linear-gradient(to right, #2980b9, #3498db); /* Adjusted gradient on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+.hidden {
+    display: none;
+}
+
+#confetti-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure that the confetti doesn't interfere with button clicks */
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(9);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

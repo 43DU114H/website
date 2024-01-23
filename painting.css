@@ -1,0 +1,65 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.painting-container {
+    text-align: center;
+    padding: 20px;
+    opacity: 90%;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensure poem container is above particles */
+
+    position: relative;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image-container {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image-container img {
+
+    max-width: 70%; /* Set maximum width for the image */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+
+}
+
+
+.caption {
+    text-align: center;
+    margin: 20px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #d038c3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.9s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #3e26cb;
+}

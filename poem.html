@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="poem.css">
+    <title>Birthday Poem</title>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="poem-container">
+        <h2 class="poem-line" data-delay="1s">In the air, whispers of delight,</h2>
+        <h2 class="poem-line" data-delay="3s">Echoing joy, a magical flight.</h2>
+        <h2 class="poem-line" data-delay="5s">A mystery unfolds, oh so sweet,</h2>
+        <h2 class="poem-line" data-delay="7s">A celebration, a joyful feat.</h2>
+        <h2 class="poem-line" data-delay="9s">Nervous beats, a secret drum,</h2>
+        <h2 class="poem-line" data-delay="11s">Heart's rhythm, a dance to come.</h2>
+        <h2 class="poem-line" data-delay="13s">The weather smiles, a gracious host,</h2>
+        <h2 class="poem-line" data-delay="15s">Wind whispers, a birthday toast.</h2>
+        <h2 class="poem-line" data-delay="17s">Oh, it's clear now, in the air,</h2>
+        <h2 class="poem-line" data-delay="19s">January 24, a day so rare.</h2>
+        <h2 class="poem-line" data-delay="21s">Underneath the moon's tender stare,</h2>
+        <h2 class="poem-line" data-delay="23s">Happy Birthday Rubab, love beyond compare.</h2>
+
+        <button id="next-page-btn" class="hidden" onclick="proceedToPainting()">Next Page</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initParticles();
+            animatePoem();
+        });
+
+        function initParticles() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 400,
+                density: {
+                    enable: true,
+                    value_area: 8000
+                }
+            },
+            color: {
+                value: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#FF9800']
+            },
+            shape: {
+                type: 'circle',
+                stroke: {
+                    width: 0,
+                    color: '#000000'
+                },
+                polygon: {
+                    nb_sides: 5
+                }
+            },
+            opacity: {
+                value: 0.8,
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 2,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 20, // Adjusted size for larger particles
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 70,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: false, // Disable lines to make particles cover more area
+            },
+            move: {
+                enable: true,
+                speed: 2, // Adjusted speed for slower movement
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'grab'
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'push'
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 200,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 600,
+                    size: 40,
+                    duration: 3,
+                    opacity: 8,
+                    speed: 3
+                },
+                repulse: {
+                    distance: 200,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true
+    });
+}
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            animatePoem();
+        });
+
+        function animatePoem() {
+            const lines = document.querySelectorAll('.poem-line');
+            const button = document.getElementById('next-page-btn');
+
+            lines.forEach((line, index) => {
+                const delay = parseFloat(line.dataset.delay) * 700;
+
+                setTimeout(() => {
+                    line.classList.add('visible');
+                }, delay);
+            });
+
+            const totalDelay = parseFloat(lines[lines.length - 1].dataset.delay) * 800;
+            setTimeout(() => {
+                button.classList.remove('hidden');
+            }, totalDelay + 700);
+        }
+
+        function proceedToPainting() {
+            window.location.href = 'painting.html';
+        }
+    </script>
+</body>
+</html>
